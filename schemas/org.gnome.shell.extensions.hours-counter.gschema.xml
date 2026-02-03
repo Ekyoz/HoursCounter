@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.hours-counter" path="/org/gnome/shell/extensions/hours-counter/">
+    <key name="language" type="s">
+      <default>'en'</default>
+      <summary>Extension language (en or fr)</summary>
+    </key>
+    
+    <key name="goal-hours" type="i">
+      <default>7</default>
+      <summary>Daily goal (hours)</summary>
+    </key>
+
+    <key name="show-remaining-time" type="b">
+      <default>true</default>
+      <summary>Show remaining time in the panel</summary>
+    </key>
+
+    <key name="color-warning" type="s">
+      <default>'#FF9800'</default>
+      <summary>Warning color (In progress)</summary>
+    </key>
+    <key name="color-success" type="s">
+      <default>'#4CAF50'</default>
+      <summary>Success color (Goal reached)</summary>
+    </key>
+    <key name="color-overtime" type="s">
+      <default>'#2196F3'</default>
+      <summary>Overtime color (Above 105%)</summary>
+    </key>
+
+    <key name="reset-daily" type="b">
+      <default>true</default>
+      <summary>Reset counter every day</summary>
+    </key>
+  </schema>
+</schemalist>
