@@ -24,7 +24,7 @@ const Translations = {
         'today': 'Today',
         'yesterday': 'Yesterday',
         'remaining': 'remaining',
-        'view_all': 'View all {n} days...',
+        'view_all': 'Past {n} days history...',
         'not_logged': 'Not logged today',
         'planned': 'Planned',
         'locale': 'en-US'
@@ -43,7 +43,7 @@ const Translations = {
         'today': "Aujourd'hui",
         'yesterday': 'Hier',
         'remaining': 'restant',
-        'view_all': 'Voir les {n} jours...',
+        'view_all': "Voir tous l'historique des {n} jours...",
         'not_logged': 'Non connecté ce jour',
         'planned': 'Prévu',
         'locale': 'fr-FR'
@@ -443,7 +443,7 @@ class HoursCounterIndicator extends PanelMenu.Button {
         let colorSuccess = _settings.get_string('color-success');
         let colorOvertime = _settings.get_string('color-overtime');
         
-        let displayDates = dates.slice(0, 10);
+        let displayDates = dates.slice(0, 8);
         
         displayDates.forEach(dateKey => {
             let totalSeconds = historyData[dateKey];
@@ -551,17 +551,15 @@ class HoursCounterIndicator extends PanelMenu.Button {
             this._historySection.addMenuItem(item);
         });
         
-        if (dates.length > 10) {
-            this._historySection.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
-            let labelTemplate = this._t('view_all');
-            let labelText = labelTemplate.replace('{n}', dates.length);
+        this._historySection.addMenuItem(new PopupMenu.PopupSeparatorMenuItem());
+        let labelTemplate = this._t('view_all');
+        let labelText = labelTemplate.replace('{n}', dates.length);
 
-            let viewAllButton = new PopupMenu.PopupMenuItem(labelText);
-            viewAllButton.connect('activate', () => {
-                this._openHistoryDialog();
-            });
-            this._historySection.addMenuItem(viewAllButton);
-        }
+        let viewAllButton = new PopupMenu.PopupMenuItem(labelText);
+        viewAllButton.connect('activate', () => {
+            this._openHistoryDialog();
+        });
+        this._historySection.addMenuItem(viewAllButton);
     }
     
     _openHistoryDialog() {
