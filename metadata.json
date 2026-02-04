@@ -1,7 +1,7 @@
 {
   "name": "Hours Counter",
   "description": "Track your daily working hours directly from the top panel. Includes a visual progress bar, history logs (weekly/monthly views), and customizable goal settings.",
-  "uuid": "hours-counter@atresall.counter.fr",
+  "uuid": "hours-counter@ekyoz.github.io",
   "shell-version": [
     "42",
     "43",

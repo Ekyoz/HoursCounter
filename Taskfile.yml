@@ -3,7 +3,7 @@
 version: '3'
 
 vars:
-  EXTENSION_UUID: hours-counter@atresall.counter.fr
+  EXTENSION_UUID: hours-counter@ekyoz.github.io
   EXTENSION_DIR: '{{.USER_WORKING_DIR}}'
   DIST_DIR: '{{.EXTENSION_DIR}}/dist'
   INSTALL_DIR: '{{.HOME}}/.local/share/gnome-shell/extensions/{{.EXTENSION_UUID}}'
@@ -57,8 +57,8 @@ tasks:
       - cp -r {{.EXTENSION_DIR}}/schemas {{.INSTALL_DIR}}/
       - cp -r {{.EXTENSION_DIR}}/LICENSE {{.INSTALL_DIR}}/
       - echo "✅ Extension installed. Restart GNOME Shell to apply changes."
-      - echo "   X11: Press Alt+F2, type 'r', press Enter"
-      - echo "   Wayland: Log out and log back in"
+      - echo "   X11=> Press Alt+F2, type 'r', press Enter"
+      - echo "   Wayland=> Log out and log back in"
 
   uninstall:
     desc: Uninstall extension

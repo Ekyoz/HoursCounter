@@ -81,7 +81,7 @@ task bump -- patch
 
 Access settings via:
 - **GNOME Extensions app** → Hours Counter → ⚙️ Settings
-- **Command line**: `gnome-extensions prefs hours-counter@atresall.counter.fr`
+- **Command line**: `gnome-extensions prefs hours-counter@Ekyoz.github.io`
 
 ### Available Settings
 
@@ -104,7 +104,7 @@ Access settings via:
 
 Your working hours history is stored locally at:
 ```
-~/.local/share/gnome-shell/extensions/hours-counter@atresall.counter.fr/history.json
+~/.local/share/hours-counter/time_data.json
 ```
 
 ## 🔧 Requirements
