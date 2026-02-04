@@ -30,9 +30,9 @@
 ## 📷 Screenshots
 
 <!-- Add screenshots to a 'screenshots' folder and update paths -->
-| Panel View | History Dialog | Settings |
-|:----------:|:--------------:|:--------:|
-| *Coming soon* | *Coming soon* | *Coming soon* |
+|             Panel View              |            History Dialog             |                 Settings                  |
+|:-----------------------------------:|:-------------------------------------:|:-----------------------------------------:|
+| ![panel.png](screenshots/panel.png) | ![dialog.png](screenshots/dialog.png) | ![settings.png](screenshots/settings.png) |
 
 ## 🚀 Installation
 
