@@ -3,7 +3,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/GNOME-42--47-blue?style=flat-square&logo=gnome" alt="GNOME Versions">
   <img src="https://img.shields.io/badge/License-GPL--3.0-green?style=flat-square" alt="License">
-  <img src="https://img.shields.io/badge/Version-0.0.3-orange?style=flat-square" alt="Version">
+  <img src="https://img.shields.io/badge/Version-0.0.1-orange?style=flat-square" alt="Version">
 </p>
 
 <p align="center">
@@ -121,10 +121,6 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
-
-## 📋 Changelog
-
-See [CHANGELOG.md](CHANGELOG.md) for a list of changes.
 
 ## 📄 License
 

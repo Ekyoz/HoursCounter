@@ -145,28 +145,34 @@ tasks:
         echo "✅ Version bumped: $CURRENT_VERSION → $NEW_VERSION (build $NEW_INT)"
         echo ""
         echo "📝 Don't forget to:"
-        echo "   1. Update CHANGELOG.md with changes"
-        echo "   2. Commit: git commit -am 'Bump version to $NEW_VERSION'"
-        echo "   3. Tag: git tag -a v$NEW_VERSION -m 'Version $NEW_VERSION'"
-        echo "   4. Push: git push && git push --tags"
+        echo "   1. Commit: git commit -am 'Bump version to $NEW_VERSION'"
+        echo "   2. Tag: git tag -a v$NEW_VERSION -m 'Version $NEW_VERSION'"
+        echo "   3. Push: git push && git push --tags"
 
   release:
-    desc: Create a release (bump + build + changelog reminder)
+    desc: Create a release (bump + build + commit + tag)
     cmds:
       - task: bump
         vars:
           CLI_ARGS: '{{.CLI_ARGS}}'
       - task: build
       - |
+        VERSION=$(grep '"version-name"' metadata.json | sed 's/.*"\([0-9]*\.[0-9]*\.[0-9]*\)".*/\1/')
+        
         echo ""
-        echo "📦 Release package ready!"
+        echo "📝 Creating commit and tag..."
+        
+        git add -A
+        git commit -m "Release v$VERSION"
+        git tag -a "v$VERSION" -m "Release v$VERSION"
+        
+        echo ""
+        echo "✅ Release v$VERSION created!"
+        echo "📦 Package ready at dist/{{.EXTENSION_UUID}}.zip"
         echo ""
         echo "📋 Next steps:"
-        echo "   1. Update CHANGELOG.md with release notes"
-        echo "   2. git add -A && git commit -m 'Release v$(grep '"version-name"' metadata.json | sed 's/.*"\([0-9]*\.[0-9]*\.[0-9]*\)".*/\1/')'"
-        echo "   3. git tag -a v$(grep '"version-name"' metadata.json | sed 's/.*"\([0-9]*\.[0-9]*\.[0-9]*\)".*/\1/') -m 'Release'"
-        echo "   4. git push && git push --tags"
-        echo "   5. Upload dist/{{.EXTENSION_UUID}}.zip to extensions.gnome.org"
+        echo "   1. git push && git push --tags"
+        echo "   2. Upload dist/{{.EXTENSION_UUID}}.zip to extensions.gnome.org"
 
   validate:
     desc: Validate extension for publishing
