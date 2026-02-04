@@ -3,7 +3,7 @@
 <p align="center">
   <img src="https://img.shields.io/badge/GNOME-42--47-blue?style=flat-square&logo=gnome" alt="GNOME Versions">
   <img src="https://img.shields.io/badge/License-GPL--3.0-green?style=flat-square" alt="License">
-  <img src="https://img.shields.io/badge/Version-0.0.1-orange?style=flat-square" alt="Version">
+  <img src="https://img.shields.io/badge/Version-1.0.1-orange?style=flat-square" alt="Version">
 </p>
 
 <p align="center">
