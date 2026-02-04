@@ -12,7 +12,7 @@
   ],
   "url": "https://github.com/Ekyoz/HoursCounter",
   "version": 1,
-  "version-name": "1.0.0",
+  "version-name": "0.0.1",
   "settings-schema": "org.gnome.shell.extensions.hours-counter",
   "gettext-domain": "hours-counter"
 }
