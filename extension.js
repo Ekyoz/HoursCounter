@@ -575,7 +575,11 @@ class HoursCounterIndicator extends PanelMenu.Button {
 });
 
 function init() {
-    savePath = GLib.build_filenamev([GLib.get_user_data_dir(), 'gnome-shell', 'extensions', 'hours-counter@atresall.counter.fr', 'history.json']);
+    savePath = GLib.build_filenamev([GLib.get_user_data_dir(), 'hours-counter', 'time_data.json']);
+
+    // Ensure the data directory exists
+    let dataDir = GLib.build_filenamev([GLib.get_user_data_dir(), 'hours-counter']);
+    GLib.mkdir_with_parents(dataDir, 0o755);
 }
 
 function loadHistory() {

@@ -1,10 +1,18 @@
 {
   "name": "Hours Counter",
   "description": "Track your daily working hours directly from the top panel. Includes a visual progress bar, history logs (weekly/monthly views), and customizable goal settings.",
-  "uuid": "hours-counter@atresall.counter.fr",
-  "shell-version": [ 
-    "42", "43", "44", "45", "46", "47" 
+  "uuid": "hours-counter@ekyoz.github.io",
+  "shell-version": [
+    "42",
+    "43",
+    "44",
+    "45",
+    "46",
+    "47"
   ],
   "url": "https://github.com/Ekyoz/HoursCounter",
-  "version": 1
+  "version": 3,
+  "version-name": "1.0.1",
+  "settings-schema": "org.gnome.shell.extensions.hours-counter",
+  "gettext-domain": "hours-counter"
 }
