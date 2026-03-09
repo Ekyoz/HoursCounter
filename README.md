@@ -51,27 +51,37 @@ git clone https://github.com/Ekyoz/HoursCounter.git
 # Navigate to GNOME extensions directory
 cd ~/.local/share/gnome-shell/extensions/
 
-# Copy the extension
-cp -r /path/to/HoursCounter hours-counter@atresall.counter.fr
+# For GNOME 45+ (Ubuntu 24.04, Fedora 39+, etc.)
+cp -r /path/to/HoursCounter/gnome45 hours-counter@Ekyoz.github.io
+
+# For GNOME 42-44 (Ubuntu 22.04, Fedora 36-38, etc.)
+cp -r /path/to/HoursCounter/gnome42 hours-counter@Ekyoz.github.io
+
+# Copy schemas (common to both versions)
+cp -r /path/to/HoursCounter/schemas hours-counter@Ekyoz.github.io/
 
 # Compile the schemas
-glib-compile-schemas hours-counter@atresall.counter.fr/schemas/
+glib-compile-schemas hours-counter@Ekyoz.github.io/schemas/
 
 # Restart GNOME Shell (X11: Alt+F2, type 'r', press Enter)
 # For Wayland: Log out and log back in
 
 # Enable the extension
-gnome-extensions enable hours-counter@atresall.counter.fr
+gnome-extensions enable hours-counter@Ekyoz.github.io
 ```
 
 ### Using Task (Development)
 
 ```bash
-# Install the extension locally
+# Install the extension locally (auto-detects GNOME version)
 task install
 
-# Build a zip package
+# Build zip packages for both versions
 task build
+
+# Build for specific version
+task build:gnome45
+task build:gnome42
 
 # Bump version (patch/minor/major)
 task bump -- patch
@@ -109,8 +119,45 @@ Your working hours history is stored locally at:
 
 ## 🔧 Requirements
 
-- GNOME Shell 42, 43, 44, 45, 46, or 47
+- GNOME Shell 42, 43, 44, 45, 46, 47, or 48
 - Ubuntu 22.04+, Fedora 36+, or any GNOME-based distribution
+
+## 📦 Project Structure
+
+This extension supports multiple GNOME Shell versions using separate codebases:
+
+```
+HoursCounter/
+├── gnome42/           # GNOME 42-44 (legacy imports)
+│   ├── extension.js
+│   ├── prefs.js
+│   └── metadata.json
+├── gnome45/           # GNOME 45+ (ESM modules)
+│   ├── extension.js
+│   ├── prefs.js
+│   └── metadata.json
+├── schemas/           # Shared GSettings schemas
+│   └── org.gnome.shell.extensions.hours-counter.gschema.xml
+└── screenshots/
+```
+
+### Publishing to extensions.gnome.org
+
+To publish on the GNOME Extensions website, you need to upload **two separate ZIP files**:
+
+1. **For GNOME 45+**: Create a ZIP with `gnome45/` contents + `schemas/`
+2. **For GNOME 42-44**: Create a ZIP with `gnome42/` contents + `schemas/`
+
+```bash
+# Build both packages
+task build
+
+# This creates:
+# - hours-counter@Ekyoz.github.io-gnome45.zip
+# - hours-counter@Ekyoz.github.io-gnome42.zip
+```
+
+Upload each ZIP separately to https://extensions.gnome.org/upload/
 
 ## 🤝 Contributing
 
